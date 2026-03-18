@@ -10,6 +10,15 @@ function App() {
   const [region, setRegion] = useState("");
   const [selectedMeal, setSelectedMeal] = useState(null);
 
+  // ---LOGIN STATES ---
+  const [user, setUser] = useState(null);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isRegister, setIsRegister] = useState(false);
+  const adminEmail = "lyphan232@gmail.com";
+  const adminPassword = "Lyphan232";
+  // ----------------------------------
+
   // pagination
   const [currentPage, setCurrentPage] = useState(1);
   const mealsPerPage = 9;
@@ -25,8 +34,59 @@ function App() {
   };
 
   useEffect(() => {
+    // --- CHECK SESSION ---
+    const savedUser = localStorage.getItem("user");
+    if (savedUser) setUser(JSON.parse(savedUser));
+    // ------------------------------------
     loadMeals();
   }, []);
+
+  // --- AUTH LOGIC ---
+  const handleAuth = (e) => {
+    e.preventDefault();
+
+    // Lấy danh sách user từ máy
+    const storageUsers = JSON.parse(localStorage.getItem("accounts") || "[]");
+
+    if (isRegister) {
+      // Không cho phép đăng ký email trùng với Admin cố định
+      if (email === adminEmail || storageUsers.find((u) => u.email === email)) {
+        return alert("Email này đã tồn tại hoặc được bảo vệ!");
+      }
+      storageUsers.push({ email, password });
+      localStorage.setItem("accounts", JSON.stringify(storageUsers));
+      alert("Đăng ký thành công!");
+      setIsRegister(false);
+    } else {
+      // KIỂM TRA ĐĂNG NHẬP
+
+      if (email === adminEmail && password === adminPassword) {
+        const adminUser = {
+          email: adminEmail,
+          password: adminPassword,
+        };
+        setUser(adminUser);
+        localStorage.setItem("user", JSON.stringify(adminUser));
+      } else {
+        // Nếu không phải admin thì mới tìm trong danh sách đăng ký tự do
+        const foundUser = storageUsers.find(
+          (u) => u.email === email && u.password === password,
+        );
+        if (foundUser) {
+          setUser(foundUser);
+          localStorage.setItem("user", JSON.stringify(foundUser));
+        } else {
+          alert("Sai email hoặc mật khẩu!");
+        }
+      }
+    }
+  };
+
+  const logout = () => {
+    localStorage.removeItem("user");
+    setUser(null);
+  };
+  // --------------------------------
 
   const deleteMeal = async (id) => {
     await fetch(`https://suggest-meals-publicapi-1.onrender.com/meals/${id}`, {
@@ -57,12 +117,87 @@ function App() {
     setCurrentPage(1);
   }, [search, region]);
 
+  // --- LOGIC HIỂN THỊ MÀN HÌNH ĐĂNG NHẬP ---
+  if (!user) {
+    return (
+      <div className="vh-100 d-flex align-items-center justify-content-center bg-light">
+        <div className="card p-4 shadow" style={{ width: "350px" }}>
+          <h3 className="text-center">
+            {isRegister ? "Đăng ký" : "Đăng nhập"}
+          </h3>
+          <form onSubmit={handleAuth}>
+            <input
+              type="email"
+              placeholder="Email"
+              className="form-control mb-2"
+              required
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              type="password"
+              placeholder="Mật khẩu"
+              className="form-control mb-3"
+              required
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button className="btn btn-primary w-100 mb-2">
+              {isRegister ? "Tạo tài khoản" : "Đăng nhập"}
+            </button>
+          </form>
+          <button
+            className="btn btn-link btn-sm w-100"
+            onClick={() => setIsRegister(!isRegister)}
+          >
+            {isRegister ? "Quay lại Đăng nhập" : "Chưa có tài khoản? Đăng ký"}
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div>
       {/* NAVBAR */}
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-3 shadow sticky-top">
-        <div className="container">
+      <nav className="navbar navbar-dark bg-dark py-3 shadow sticky-top">
+        <div className="container d-flex justify-content-between align-items-center">
+          {/* LOGO */}
           <span className="navbar-brand fs-2 fw-bold">🍜 Hôm nay ăn gì?</span>
+
+          {/* USER & LOGOUT */}
+          <div className="d-flex align-items-center gap-3">
+            {/* KHỐI USER */}
+            <div className="d-none d-md-flex align-items-center border-end pe-3 border-secondary">
+              <div
+                className="rounded-circle bg-primary d-flex align-items-center justify-content-center fw-bold text-white me-2"
+                style={{ width: "35px", height: "35px", fontSize: "14px" }}
+              >
+                {user.email.charAt(0).toUpperCase()}
+              </div>
+              <div className="text-start">
+                <div
+                  className="small fw-bold text-white"
+                  style={{ fontSize: "12px" }}
+                >
+                  {user.email}
+                </div>
+                <span
+                  className="badge bg-info text-dark shadow-sm"
+                  style={{ fontSize: "10px" }}
+                >
+                  {user.email === adminEmail ? "ADMIN" : "MEMBER"}
+                </span>
+              </div>
+            </div>
+
+            {/* NÚT ĐĂNG XUẤT  */}
+            <button
+              className="btn btn-outline-danger btn-sm fw-bold px-3"
+              onClick={logout}
+              style={{ borderRadius: "8px", transition: "0.3s" }}
+            >
+              Đăng xuất
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -94,6 +229,7 @@ function App() {
           regions={regions}
         />
 
+        {/* THÊM MÓN */}
         <AddMeal reloadMeals={loadMeals} />
 
         <div className="row mt-4">
@@ -103,6 +239,8 @@ function App() {
               meal={meal}
               deleteMeal={deleteMeal}
               viewDetail={setSelectedMeal}
+              // TRUYỀN QUYỀN ADMIN XUỐNG CARD ĐỂ ẨN/HIỆN NÚT XÓA
+              isAdmin={user.email === adminEmail}
             />
           ))}
         </div>
@@ -160,7 +298,7 @@ function App() {
       )}
 
       {/* FOOTER */}
-      <footer className="footer mt-5 text-white">
+      <footer className="footer mt-5 text-white bg-dark">
         <div className="container py-4">
           <div className="row ">
             {/* about */}

@@ -123,7 +123,7 @@ function AddMeal({ reloadMeals }) {
           </div>
 
           <button type="submit" className="btn-save-meal w-100">
-            🚀 Lưu món ăn vào hệ thống
+            Lưu món ăn vào hệ thống
           </button>
         </form>
       )}

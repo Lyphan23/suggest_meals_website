@@ -187,3 +187,18 @@ body {
 .footer .row {
   align-items: center;
 }
+.btn-outline-danger {
+  transition: all 0.3s ease;
+}
+
+.btn-outline-danger:hover {
+  background-color: #dc3545;
+  color: white;
+  transform: scale(1.05); /* Phóng to nhẹ khi hover */
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.4);
+}
+
+.navbar-brand:hover {
+  opacity: 0.8;
+  transition: 0.3s;
+}
