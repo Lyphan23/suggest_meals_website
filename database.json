@@ -58,12 +58,7 @@
       "region": "Pháp",
       "category": "Bữa sáng",
       "ingredientMain": "trứng",
-      "ingredients": [
-        "2 quả trứng",
-        "muối",
-        "tiêu",
-        "bơ"
-      ],
+      "ingredients": ["2 quả trứng", "muối", "tiêu", "bơ"],
       "image": "/images/omelette.jpg",
       "description": "Món trứng đơn giản cho bữa sáng.",
       "instructions": "Bước 1: Làm nóng chảo với bơ. Bước 2: Đập trứng vào chảo. Bước 3: Nêm muối tiêu. Bước 4: Chiên đến khi lòng trắng chín."
@@ -107,12 +102,7 @@
       "region": "Nhật Bản",
       "category": "Truyền thống",
       "ingredientMain": "cơm",
-      "ingredients": [
-        "cơm sushi",
-        "rong biển",
-        "cá hồi",
-        "dưa leo"
-      ],
+      "ingredients": ["cơm sushi", "rong biển", "cá hồi", "dưa leo"],
       "image": "/images/sushi.jpg",
       "description": "Món sushi nổi tiếng của Nhật Bản.",
       "instructions": "Bước 1: Nấu cơm sushi. Bước 2: Trải rong biển lên mành tre. Bước 3: Trải cơm lên rong biển. Bước 4: Thêm cá hồi và dưa leo rồi cuộn lại."
@@ -123,12 +113,7 @@
       "region": "Ấn Độ",
       "category": "Cay",
       "ingredientMain": "gà",
-      "ingredients": [
-        "thịt gà",
-        "bột cà ri",
-        "nước cốt dừa",
-        "hành tây"
-      ],
+      "ingredients": ["thịt gà", "bột cà ri", "nước cốt dừa", "hành tây"],
       "image": "/images/chicken_curry.jpg",
       "description": "Món cà ri gà cay đặc trưng.",
       "instructions": "Bước 1: Phi hành tây. Bước 2: Cho gà vào xào. Bước 3: Thêm bột cà ri. Bước 4: Đổ nước cốt dừa và nấu 20 phút."
@@ -139,12 +124,7 @@
       "region": "Quốc tế",
       "category": "Healthy",
       "ingredientMain": "rau",
-      "ingredients": [
-        "xà lách",
-        "cà chua",
-        "dưa leo",
-        "dầu olive"
-      ],
+      "ingredients": ["xà lách", "cà chua", "dưa leo", "dầu olive"],
       "image": "/images/salad.jpg",
       "description": "Salad rau tươi tốt cho sức khỏe.",
       "instructions": "Bước 1: Rửa sạch rau. Bước 2: Cắt nhỏ các loại rau. Bước 3: Trộn với dầu olive."
@@ -155,12 +135,7 @@
       "region": "Nhật Bản",
       "category": "Truyền thống",
       "ingredientMain": "thịt heo",
-      "ingredients": [
-        "mì ramen",
-        "thịt heo",
-        "trứng",
-        "nước dùng"
-      ],
+      "ingredients": ["mì ramen", "thịt heo", "trứng", "nước dùng"],
       "image": "/images/ramen.jpg",
       "description": "Mì ramen nổi tiếng của Nhật.",
       "instructions": "Bước 1: Nấu nước dùng. Bước 2: Luộc mì ramen. Bước 3: Thêm thịt heo và trứng vào bát mì."
@@ -171,12 +146,7 @@
       "region": "Thái Lan",
       "category": "Street Food",
       "ingredientMain": "tôm",
-      "ingredients": [
-        "bánh phở",
-        "tôm",
-        "trứng",
-        "đậu phộng"
-      ],
+      "ingredients": ["bánh phở", "tôm", "trứng", "đậu phộng"],
       "image": "/images/pad_thai.jpg",
       "description": "Món mì xào nổi tiếng của Thái Lan.",
       "instructions": "Bước 1: Ngâm bánh phở mềm. Bước 2: Xào tôm. Bước 3: Cho trứng và bánh phở vào đảo. Bước 4: Thêm nước sốt me."
@@ -187,13 +157,7 @@
       "region": "Hàn Quốc",
       "category": "Healthy",
       "ingredientMain": "cơm",
-      "ingredients": [
-        "cơm",
-        "thịt bò",
-        "rau",
-        "trứng",
-        "tương ớt Hàn"
-      ],
+      "ingredients": ["cơm", "thịt bò", "rau", "trứng", "tương ớt Hàn"],
       "image": "/images/bibimbap.jpg",
       "description": "Cơm trộn Hàn Quốc với rau và thịt.",
       "instructions": "Bước 1: Chuẩn bị rau. Bước 2: Xào thịt bò. Bước 3: Cho cơm vào bát. Bước 4: Xếp rau và thịt lên trên. Bước 5: Thêm trứng."
@@ -204,13 +168,7 @@
       "region": "Việt Nam",
       "category": "Street Food",
       "ingredientMain": "thịt",
-      "ingredients": [
-        "bánh mì",
-        "thịt heo",
-        "dưa leo",
-        "cà rốt",
-        "mayonnaise"
-      ],
+      "ingredients": ["bánh mì", "thịt heo", "dưa leo", "cà rốt", "mayonnaise"],
       "image": "/images/banhmi.jpg",
       "description": "Bánh mì kẹp thịt nổi tiếng Việt Nam.",
       "instructions": "Bước 1: Rạch bánh mì. Bước 2: Phết mayonnaise. Bước 3: Thêm thịt và rau."
@@ -221,12 +179,7 @@
       "region": "Mexico",
       "category": "Street Food",
       "ingredientMain": "bò",
-      "ingredients": [
-        "vỏ taco",
-        "thịt bò",
-        "xà lách",
-        "phô mai"
-      ],
+      "ingredients": ["vỏ taco", "thịt bò", "xà lách", "phô mai"],
       "image": "/images/tacos.jpg",
       "description": "Tacos Mexico với thịt bò.",
       "instructions": "Xào thịt bò với gia vị rồi cho vào vỏ taco cùng rau."
@@ -237,12 +190,7 @@
       "region": "Mỹ",
       "category": "Fast Food",
       "ingredientMain": "xúc xích",
-      "ingredients": [
-        "bánh hotdog",
-        "xúc xích",
-        "tương cà",
-        "mù tạt"
-      ],
+      "ingredients": ["bánh hotdog", "xúc xích", "tương cà", "mù tạt"],
       "image": "/images/hotdog.jpg",
       "description": "Hot dog phổ biến ở Mỹ.",
       "instructions": "Nướng xúc xích rồi kẹp vào bánh với tương."
@@ -253,12 +201,7 @@
       "region": "Nhật Bản",
       "category": "Truyền thống",
       "ingredientMain": "tôm",
-      "ingredients": [
-        "tôm",
-        "bột tempura",
-        "trứng",
-        "dầu"
-      ],
+      "ingredients": ["tôm", "bột tempura", "trứng", "dầu"],
       "image": "/images/tempura.jpg",
       "description": "Tôm chiên tempura giòn.",
       "instructions": "Nhúng tôm vào bột rồi chiên ngập dầu."
@@ -269,12 +212,7 @@
       "region": "Thái Lan",
       "category": "Cay",
       "ingredientMain": "tôm",
-      "ingredients": [
-        "tôm",
-        "sả",
-        "ớt",
-        "nấm"
-      ],
+      "ingredients": ["tôm", "sả", "ớt", "nấm"],
       "image": "/images/tomyum.jpg",
       "description": "Canh chua cay nổi tiếng của Thái.",
       "instructions": "Nấu nước với sả rồi thêm tôm và nấm."
@@ -285,12 +223,7 @@
       "region": "Ý",
       "category": "Món Âu",
       "ingredientMain": "bò",
-      "ingredients": [
-        "lá mì lasagna",
-        "thịt bò",
-        "phô mai",
-        "sốt cà chua"
-      ],
+      "ingredients": ["lá mì lasagna", "thịt bò", "phô mai", "sốt cà chua"],
       "image": "/images/lasagna.jpg",
       "description": "Mì nướng nhiều lớp của Ý.",
       "instructions": "Xếp lớp mì, thịt và phô mai rồi nướng."
@@ -301,12 +234,7 @@
       "region": "Hàn Quốc",
       "category": "Truyền thống",
       "ingredientMain": "cải thảo",
-      "ingredients": [
-        "cải thảo",
-        "ớt bột",
-        "tỏi",
-        "muối"
-      ],
+      "ingredients": ["cải thảo", "ớt bột", "tỏi", "muối"],
       "image": "/images/kimchi.jpg",
       "description": "Món cải thảo lên men nổi tiếng Hàn Quốc.",
       "instructions": "Ướp cải thảo với muối rồi trộn gia vị và lên men."
@@ -317,13 +245,7 @@
       "region": "Mỹ",
       "category": "Bữa sáng",
       "ingredientMain": "bột mì",
-      "ingredients": [
-        "bột mì",
-        "trứng",
-        "sữa",
-        "đường",
-        "bơ"
-      ],
+      "ingredients": ["bột mì", "trứng", "sữa", "đường", "bơ"],
       "image": "/images/pancakes.jpg",
       "description": "Bánh pancake mềm cho bữa sáng.",
       "instructions": "Trộn bột mì, trứng và sữa rồi chiên trên chảo."

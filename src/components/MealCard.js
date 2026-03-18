@@ -3,11 +3,7 @@ function MealCard({ meal, deleteMeal, viewDetail }) {
     <div className="col-md-4 mb-4">
       <div className="card meal-card h-100 border-0 shadow-lg">
         <div className="image-container">
-          <img
-            src={process.env.PUBLIC_URL + meal.image}
-            className="card-img-top"
-            alt={meal.name}
-          />
+          <img src={meal.image} className="card-img-top" alt={meal.name} />
         </div>
 
         <div className="card-body text-center">

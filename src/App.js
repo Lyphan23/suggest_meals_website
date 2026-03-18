@@ -15,15 +15,19 @@ function App() {
   const mealsPerPage = 9;
 
   const regions = ["", ...new Set(meals.map((meal) => meal.region))];
-  const API_URL = "https://suggest-meals-website-5.onrender.com";
+
   const loadMeals = async () => {
-    const res = await fetch(`${API_URL}/meals`);
+    const res = await fetch("http://localhost:3001/meals");
     const data = await res.json();
     setMeals(data);
   };
 
+  useEffect(() => {
+    loadMeals();
+  }, []);
+
   const deleteMeal = async (id) => {
-    await fetch(`${API_URL}/meals/${id}`, {
+    await fetch(`http://localhost:3001/meals/${id}`, {
       method: "DELETE",
     });
     loadMeals();
