@@ -191,11 +191,50 @@ function App() {
   return (
     <div>
       {/* NAVBAR */}
-      <nav className="navbar navbar-dark bg-dark py-3 shadow sticky-top">
+      <nav
+        className="navbar navbar-dark shadow sticky-top"
+        style={{
+          background: "linear-gradient(90deg, #FF512F 0%, #F09819 100%)",
+        }}
+      >
         <div className="container d-flex justify-content-between align-items-center">
           {/* LOGO */}
-          <span className="navbar-brand fs-2 fw-bold">🍜 Hôm nay ăn gì?</span>
+          <style>
+            {`
+  @import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
 
+  .neon-chef {
+    font-family: 'Monoton', cursive; 
+    font-size: 3.5rem;
+    color: #fff;
+    text-shadow: 
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #ffc107,
+      0 0 82px #ffc107,
+      0 0 92px #ffc107,
+      0 0 102px #ffc107;
+    animation: neon-flicker 1.5s infinite alternate;
+  }
+  @keyframes neon-flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+      text-shadow: 
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 21px #fff,
+        0 0 42px #ffc107,
+        0 0 82px #ffc107,
+        0 0 92px #ffc107;
+    }
+    20%, 22%, 24%, 55% {
+      text-shadow: none;
+    }
+  }
+`}
+          </style>
+
+          <span className="navbar-brand neon-chef">✨ ChefLee</span>
           {/* USER & LOGOUT */}
           <div className="d-flex align-items-center gap-3">
             {/* KHỐI USER */}
@@ -208,8 +247,8 @@ function App() {
               </div>
               <div className="text-start">
                 <div
-                  className="small fw-bold text-white"
-                  style={{ fontSize: "12px" }}
+                  className="small fw-bold text-black"
+                  style={{ fontSize: "16px" }}
                 >
                   {user.email}
                 </div>
@@ -224,9 +263,13 @@ function App() {
 
             {/* NÚT ĐĂNG XUẤT  */}
             <button
-              className="btn btn-outline-danger btn-sm fw-bold px-3"
+              className="btn btn-outline btn-sm fw-bold px-3 text-white"
               onClick={logout}
-              style={{ borderRadius: "8px", transition: "0.3s" }}
+              style={{
+                borderRadius: "8px",
+                transition: "0.3s",
+                background: "linear-gradient(45deg, #36d1dc, #5b86e5)",
+              }}
             >
               Đăng xuất
             </button>
@@ -330,12 +373,15 @@ function App() {
       )}
 
       {/* FOOTER */}
-      <footer className="footer mt-5 text-white bg-dark">
+      <footer
+        className="py-5 mt-5"
+        style={{ background: "#fff5f0", borderTop: "5px solid #FF512F" }}
+      >
         <div className="container py-4">
           <div className="row ">
             {/* about */}
             <div className="col-md-6">
-              <h5>🍜 Hôm nay ăn gì?</h5>
+              <h5>👨‍🍳 ChefLee</h5>
               <p>
                 Website gợi ý các món ăn ngon từ nhiều quốc gia. Tìm kiếm món ăn
                 theo nguyên liệu và khám phá công thức nấu ăn thú vị.

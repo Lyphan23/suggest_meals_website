@@ -12,12 +12,10 @@ function MealCard({ meal, deleteMeal, viewDetail, isAdmin }) {
         </div>
         <div className="card-body text-center">
           <h5 className="card-title fw-bold">{meal.name}</h5>
-          <span className="badge bg-warning text-dark mb-3">
-            🌍 {meal.region}
-          </span>
+          <span className="badge bg-warning text-dark mb-3">{meal.region}</span>
           <div className="d-flex justify-content-center gap-2 mt-2">
             <button className="btn btn-detail" onClick={() => viewDetail(meal)}>
-              👀 Chi tiết
+              Chi tiết
             </button>
 
             {/* CHỈ ADMIN MỚI THẤY NÚT XÓA */}
