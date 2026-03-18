@@ -15,6 +15,10 @@ function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isRegister, setIsRegister] = useState(false);
+
+  // BIẾN LƯU THÔNG BÁO LỖI (CHỮ ĐỎ)
+  const [error, setError] = useState("");
+
   const adminEmail = "lyphan232@gmail.com";
   const adminPassword = "Lyphan232";
   // ----------------------------------
@@ -44,6 +48,7 @@ function App() {
   // --- AUTH LOGIC ---
   const handleAuth = (e) => {
     e.preventDefault();
+    setError(""); // Reset lỗi mỗi lần bấm nút
 
     // Lấy danh sách user từ máy
     const storageUsers = JSON.parse(localStorage.getItem("accounts") || "[]");
@@ -51,15 +56,16 @@ function App() {
     if (isRegister) {
       // Không cho phép đăng ký email trùng với Admin cố định
       if (email === adminEmail || storageUsers.find((u) => u.email === email)) {
-        return alert("Email này đã tồn tại hoặc được bảo vệ!");
+        return setError("Email này đã tồn tại hoặc được bảo vệ!");
       }
       storageUsers.push({ email, password });
       localStorage.setItem("accounts", JSON.stringify(storageUsers));
-      alert("Đăng ký thành công!");
+
+      // Chuyển sang đăng nhập và hiện thông báo thành công màu xanh (tùy chọn) hoặc đỏ nhẹ
       setIsRegister(false);
+      setError("Đăng ký thành công! Hãy đăng nhập.");
     } else {
       // KIỂM TRA ĐĂNG NHẬP
-
       if (email === adminEmail && password === adminPassword) {
         const adminUser = {
           email: adminEmail,
@@ -76,7 +82,10 @@ function App() {
           setUser(foundUser);
           localStorage.setItem("user", JSON.stringify(foundUser));
         } else {
-          alert("Sai email hoặc mật khẩu!");
+          // THAY ALERT BẰNG CẢNH BÁO CHỮ ĐỎ
+          setError(
+            "Tài khoản không tồn tại hoặc sai mật khẩu. Hãy tạo tài khoản mới!",
+          );
         }
       }
     }
@@ -115,14 +124,18 @@ function App() {
   // reset page when search/filter change
   useEffect(() => {
     setCurrentPage(1);
-  }, [search, region]);
+    setError("");
+  }, [search, region, isRegister]);
 
   // --- LOGIC HIỂN THỊ MÀN HÌNH ĐĂNG NHẬP ---
   if (!user) {
     return (
       <div className="vh-100 d-flex align-items-center justify-content-center bg-light">
-        <div className="card p-4 shadow" style={{ width: "350px" }}>
-          <h3 className="text-center">
+        <div
+          className="card p-4 shadow"
+          style={{ width: "350px", borderRadius: "15px" }}
+        >
+          <h3 className="text-center mb-4">
             {isRegister ? "Đăng ký" : "Đăng nhập"}
           </h3>
           <form onSubmit={handleAuth}>
@@ -131,21 +144,34 @@ function App() {
               placeholder="Email"
               className="form-control mb-2"
               required
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                setError("");
+              }}
             />
             <input
               type="password"
               placeholder="Mật khẩu"
               className="form-control mb-3"
               required
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => {
+                setPassword(e.target.value);
+                setError("");
+              }}
             />
+
+            {error && (
+              <div className="text-danger small mb-3 text-center fw-bold">
+                {error}
+              </div>
+            )}
+
             <button className="btn btn-primary w-100 mb-2">
               {isRegister ? "Tạo tài khoản" : "Đăng nhập"}
             </button>
           </form>
           <button
-            className="btn btn-link btn-sm w-100"
+            className="btn btn-link btn-sm w-100 text-decoration-none"
             onClick={() => setIsRegister(!isRegister)}
           >
             {isRegister ? "Quay lại Đăng nhập" : "Chưa có tài khoản? Đăng ký"}
@@ -181,7 +207,7 @@ function App() {
                   {user.email}
                 </div>
                 <span
-                  className="badge bg-info text-dark shadow-sm"
+                  className={`badge ${user.email === adminEmail ? "bg-danger" : "bg-info text-dark"} shadow-sm`}
                   style={{ fontSize: "10px" }}
                 >
                   {user.email === adminEmail ? "ADMIN" : "MEMBER"}
@@ -239,7 +265,6 @@ function App() {
               meal={meal}
               deleteMeal={deleteMeal}
               viewDetail={setSelectedMeal}
-              // TRUYỀN QUYỀN ADMIN XUỐNG CARD ĐỂ ẨN/HIỆN NÚT XÓA
               isAdmin={user.email === adminEmail}
             />
           ))}
