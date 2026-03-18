@@ -58,9 +58,16 @@ function App() {
   return (
     <div>
       {/* NAVBAR */}
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-3 shadow sticky-top">
+      <nav
+        className="navbar navbar-dark shadow sticky-top"
+        style={{
+          background: "linear-gradient(90deg, #FF512F 0%, #F09819 100%)",
+        }}
+      >
         <div className="container">
-          <span className="navbar-brand fs-2 fw-bold">🍜 Hôm nay ăn gì?</span>
+          <span className="navbar-brand fs-1 fw-bold text-white ">
+            ✨ ChefLee
+          </span>
         </div>
       </nav>
 
@@ -116,7 +123,7 @@ function App() {
                   className="page-link"
                   onClick={() => setCurrentPage(currentPage - 1)}
                 >
-                  Previous
+                  Trước
                 </button>
               </li>
 
@@ -145,7 +152,7 @@ function App() {
                   className="page-link"
                   onClick={() => setCurrentPage(currentPage + 1)}
                 >
-                  Next
+                  Tiếp
                 </button>
               </li>
             </ul>
@@ -158,12 +165,15 @@ function App() {
       )}
 
       {/* FOOTER */}
-      <footer className="footer mt-5 text-white">
+      <footer
+        className="py-5 mt-5"
+        style={{ background: "#fff5f0", borderTop: "5px solid #FF512F" }}
+      >
         <div className="container py-4">
           <div className="row ">
             {/* about */}
             <div className="col-md-6">
-              <h5>🍜 Hôm nay ăn gì?</h5>
+              <h5>✨ ChefLee</h5>
               <p>
                 Website gợi ý các món ăn ngon từ nhiều quốc gia. Tìm kiếm món ăn
                 theo nguyên liệu và khám phá công thức nấu ăn thú vị.

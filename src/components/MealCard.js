@@ -15,7 +15,7 @@ function MealCard({ meal, deleteMeal, viewDetail }) {
 
           <div className="d-flex justify-content-center gap-2 mt-2">
             <button className="btn btn-detail" onClick={() => viewDetail(meal)}>
-              👀 Chi tiết
+              Chi tiết
             </button>
 
             <button
