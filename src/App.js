@@ -16,7 +16,6 @@ function App() {
   const [password, setPassword] = useState("");
   const [isRegister, setIsRegister] = useState(false);
 
-  // BIẾN LƯU THÔNG BÁO LỖI (CHỮ ĐỎ)
   const [error, setError] = useState("");
 
   const adminEmail = "lyphan232@gmail.com";
@@ -48,7 +47,7 @@ function App() {
   // --- AUTH LOGIC ---
   const handleAuth = (e) => {
     e.preventDefault();
-    setError(""); // Reset lỗi mỗi lần bấm nút
+    setError("");
 
     // Lấy danh sách user từ máy
     const storageUsers = JSON.parse(localStorage.getItem("accounts") || "[]");
