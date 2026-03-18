@@ -129,7 +129,15 @@ function App() {
   // --- LOGIC HIỂN THỊ MÀN HÌNH ĐĂNG NHẬP ---
   if (!user) {
     return (
-      <div className="vh-100 d-flex align-items-center justify-content-center bg-light">
+      <div
+        className="login-page-container"
+        style={{
+          backgroundImage: `url(${process.env.PUBLIC_URL + "/images/login-bg.jpg"})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          height: "100vh",
+        }}
+      >
         <div
           className="card p-4 shadow"
           style={{ width: "350px", borderRadius: "15px" }}
